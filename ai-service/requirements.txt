@@ -1,0 +1,69 @@
+# FastAPI and server dependencies
+fastapi==0.103.1
+uvicorn[standard]==0.23.2
+python-multipart==0.0.6
+python-dotenv==1.0.0
+
+# Computer Vision and Image Processing
+opencv-python==4.8.0.76
+opencv-contrib-python==4.8.0.76
+Pillow==10.0.0
+scikit-image==0.21.0
+numpy==1.24.3
+imageio==2.31.1
+
+# OCR Libraries
+easyocr==1.7.0
+pytesseract==0.3.10
+paddleocr==2.7.0.3
+
+# Deep Learning (Optional - for advanced features)
+torch==2.0.1
+torchvision==0.15.2
+tensorflow==2.13.0
+transformers==4.33.2
+
+# Text Processing and Similarity
+rapidfuzz==3.2.0
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.21.1
+nltk==3.8.1
+textdistance==4.6.0
+
+# Data Processing
+pandas==2.0.3
+scipy==1.11.2
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# HTTP Client
+requests==2.31.0
+httpx==0.24.1
+
+# Logging and Monitoring
+loguru==0.7.0
+pydantic==2.3.0
+
+# File and Directory Management
+pathlib2==2.3.7
+glob2==0.7
+
+# Image Enhancement (Optional)
+# Uncomment if you want super-resolution features
+# realesrgan==0.3.0
+# basicsr==1.4.2
+
+# GPU Support (Optional - uncomment if you have NVIDIA GPU)
+# torch-audio==2.0.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118
+# torchvision==0.15.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118
+
+# Development and Testing
+pytest==7.4.0
+pytest-asyncio==0.21.1
+black==23.7.0
+isort==5.12.0
+flake8==6.0.0
+
+# Performance and Caching
+redis==4.6.0
+celery==5.3.1

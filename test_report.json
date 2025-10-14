@@ -1,0 +1,156 @@
+{
+  "timestamp": "2025-10-15T01:40:57.071986",
+  "duration": 15.89013,
+  "summary": {
+    "total": 24,
+    "passed": 18,
+    "failed": 6,
+    "success_rate": 75.0
+  },
+  "results": [
+    {
+      "test": "Python Version",
+      "passed": true,
+      "message": "Python 3.11",
+      "timestamp": "2025-10-15T01:40:41.188868"
+    },
+    {
+      "test": "Python Package: fastapi",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:41.541156"
+    },
+    {
+      "test": "Python Package: uvicorn",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:41.600446"
+    },
+    {
+      "test": "Python Package: opencv-python",
+      "passed": false,
+      "message": "Not installed",
+      "timestamp": "2025-10-15T01:40:41.601951"
+    },
+    {
+      "test": "Python Package: easyocr",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.851694"
+    },
+    {
+      "test": "Python Package: numpy",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.851694"
+    },
+    {
+      "test": "Python Package: rapidfuzz",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.872252"
+    },
+    {
+      "test": "Node.js Version",
+      "passed": true,
+      "message": "v22.13.0",
+      "timestamp": "2025-10-15T01:40:44.930958"
+    },
+    {
+      "test": "npm Version",
+      "passed": false,
+      "message": "npm not installed",
+      "timestamp": "2025-10-15T01:40:44.933471"
+    },
+    {
+      "test": "File: backend/package.json",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.933471"
+    },
+    {
+      "test": "File: backend/src/server.js",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.933471"
+    },
+    {
+      "test": "File: frontend/package.json",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.933471"
+    },
+    {
+      "test": "File: frontend/src/App.js",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.933471"
+    },
+    {
+      "test": "File: ai-service/main.py",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.934477"
+    },
+    {
+      "test": "File: ai-service/requirements.txt",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.934477"
+    },
+    {
+      "test": "File: docker-compose.yml",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.934477"
+    },
+    {
+      "test": "Backend package.json",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.934477"
+    },
+    {
+      "test": "Backend node_modules",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.934477"
+    },
+    {
+      "test": "Frontend package.json",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.934477"
+    },
+    {
+      "test": "Frontend node_modules",
+      "passed": true,
+      "message": "",
+      "timestamp": "2025-10-15T01:40:44.934477"
+    },
+    {
+      "test": "MongoDB Connection",
+      "passed": false,
+      "message": "pymongo not installed",
+      "timestamp": "2025-10-15T01:40:44.935477"
+    },
+    {
+      "test": "AI Service Health",
+      "passed": false,
+      "message": "Service not running",
+      "timestamp": "2025-10-15T01:40:48.974670"
+    },
+    {
+      "test": "Backend Health",
+      "passed": false,
+      "message": "Service not running",
+      "timestamp": "2025-10-15T01:40:53.029845"
+    },
+    {
+      "test": "Frontend Health",
+      "passed": false,
+      "message": "Service not running",
+      "timestamp": "2025-10-15T01:40:57.071479"
+    }
+  ]
+}

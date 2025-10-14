@@ -1,0 +1,305 @@
+# ========================================
+# MARKSURE AOI PROJECT - GITIGNORE
+# ========================================
+
+# Environment Variables (NEVER COMMIT REAL SECRETS)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Node.js Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.npm
+.yarn-integrity
+
+# Build Output
+build/
+dist/
+out/
+
+# Python Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# AI/ML Model Files (if large)
+*.h5
+*.pkl
+*.joblib
+models/weights/
+*.pth
+*.onnx
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime Data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage Directory
+coverage/
+*.lcov
+.nyc_output
+
+# ESLint Cache
+.eslintcache
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Upload/Media Files (for development)
+uploads/
+media/
+static/media/
+
+# Test Files (if sensitive)
+test-images/
+sample-data/
+
+# Docker
+.dockerignore
+
+# Database Files (if local)
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup Files
+*.bak
+*.backup
+*.old
+
+# Compiled Binary Files
+*.exe
+*.o
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# npm package-lock (optional - team preference)
+# package-lock.json
+
+# Yarn lock (optional - team preference)
+# yarn.lock
+
+# Production builds
+frontend/build/
+backend/dist/
+
+# Test coverage reports
+coverage/
+*.lcov
+.coverage
+
+# Monitoring and analytics
+.nyc_output/
+
+# Service worker
+sw.js
+sw.js.map
+
+# PWA
+workbox-config.js
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Local development files
+local-config/
+dev-scripts/
+
+# Certificate files (if any)
+*.pem
+*.key
+*.crt
+*.cert
+
+# Environment specific files
+.env.staging
+.env.production
+
+# Auto-generated documentation
+docs/build/
+docs/_build/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# PyTorch model files
+*.pth
+*.pt
+
+# TensorFlow model files
+*.pb
+*.tflite
+saved_model/
+
+# Hugging Face cache
+.cache/
+transformers_cache/
+
+# EasyOCR model cache
+.EasyOCR/
+
+# OCR temporary files
+ocr_temp/
+preprocessed/
+
+# AI service logs
+ai-service/logs/
+ai-service/temp/
+
+# Backend logs and temp files
+backend/logs/
+backend/temp/
+backend/uploads/
+
+# Frontend hot reload files
+frontend/src/**/*.hot-update.js
+frontend/src/**/*.hot-update.json
+
+# Security files
+secrets/
+private/
+confidential/
+
+# Database dumps
+*.dump
+*.sql
+
+# Redis dumps
+dump.rdb
+
+# MongoDB dumps
+mongodb-backup/
+
+# Performance profiling
+*.prof
+*.trace
+
+# Memory dumps
+heapdump.*
+
+# API documentation generated files
+api-docs/
+
+# Miscellaneous
+.sass-cache/
+connect.lock
+typings/
+.grunt
+
+# ========================================
+# KEEP THESE FILES (EXAMPLES/TEMPLATES)
+# ========================================
+# !.env.example
+# !.env.template
+# !config/config.example.js
+# !setup.bat
+# !setup.sh
+# !requirements.txt
+# !package.json
+# !docker-compose.yml
+# !README.md
+# !docs/
