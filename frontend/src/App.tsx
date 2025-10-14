@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { CssBaseline, Box } from '@mui/material';
+import { CssBaseline, Box, CircularProgress } from '@mui/material';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -53,18 +53,33 @@ const theme = createTheme({
 });
 
 // Protected Route Component
-const ProtectedRoute = ({ children }) => {
+interface ProtectedRouteProps {
+  children: React.ReactNode;
+}
+
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
   
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '100vh',
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
   }
   
-  return isAuthenticated ? children : <Navigate to="/login" />;
+  return isAuthenticated ? <>{children}</> : <Navigate to="/login" />;
 };
 
 // Main App Component
-function AppContent() {
+function AppContent(): JSX.Element {
   const { isAuthenticated } = useAuth();
 
   return (
@@ -155,7 +170,7 @@ function AppContent() {
 }
 
 // Main App with Providers
-function App() {
+function App(): JSX.Element {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

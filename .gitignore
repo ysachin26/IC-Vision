@@ -68,6 +68,10 @@ coverage/
 # ESLint Cache
 .eslintcache
 
+# TypeScript Cache
+*.tsbuildinfo
+.tscache/
+
 # IDE and Editor Files
 .vscode/
 .idea/
@@ -180,7 +184,13 @@ $RECYCLE.BIN/
 
 # Production builds
 frontend/build/
+backend/build/
 backend/dist/
+
+# TypeScript compilation output
+src/**/*.js
+src/**/*.js.map
+!src/**/*.d.ts
 
 # Test coverage reports
 coverage/
