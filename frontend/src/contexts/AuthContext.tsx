@@ -21,6 +21,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(true);
   
   const isAuthenticated = !!user;
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
   // Check for existing authentication on mount
   useEffect(() => {
@@ -29,7 +30,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         const token = localStorage.getItem('authToken');
         if (token) {
           // Validate token with backend
-          const response = await fetch('http://localhost:5001/api/auth/verify', {
+          const response = await fetch(`${API_BASE_URL}/api/auth/verify`, {
             headers: {
               'Authorization': `Bearer ${token}`,
             },
@@ -60,7 +61,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const login = async (email: string, password: string): Promise<{ success: boolean; message?: string }> => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5001/api/auth/login', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -91,7 +92,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const register = async (userData: RegisterRequest): Promise<{ success: boolean; message?: string }> => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5001/api/auth/register', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -123,7 +124,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     try {
       const token = localStorage.getItem('authToken');
       if (token) {
-        await fetch('http://localhost:5001/api/auth/logout', {
+        await fetch(`${API_BASE_URL}/api/auth/logout`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
