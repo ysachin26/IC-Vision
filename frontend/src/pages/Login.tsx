@@ -16,6 +16,10 @@ import {
   Paper,
   InputAdornment,
   IconButton,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
 } from '@mui/material';
 import {
   Visibility,
@@ -24,6 +28,8 @@ import {
   Lock,
   Person,
   Business,
+  CheckCircle,
+  Cancel,
 } from '@mui/icons-material';
 import { useAuth } from '../contexts/AuthContext';
 import { LoginRequest, RegisterRequest, FormErrors } from '../types';
@@ -69,6 +75,18 @@ const Login: React.FC = () => {
     lastName: '',
     department: '',
   });
+
+  // Password requirements checker
+  const getPasswordRequirements = (password: string) => {
+    return {
+      length: password.length >= 8,
+      uppercase: /[A-Z]/.test(password),
+      lowercase: /[a-z]/.test(password),
+      number: /\d/.test(password),
+    };
+  };
+
+  const passwordReqs = getPasswordRequirements(registerData.password);
 
   const handleTabChange = (_event: React.SyntheticEvent, newValue: number): void => {
     setActiveTab(newValue);
@@ -130,8 +148,16 @@ const Login: React.FC = () => {
     
     if (!registerData.password.trim()) {
       newErrors.password = 'Password is required';
-    } else if (registerData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
+    } else {
+      const password = registerData.password;
+      const hasUppercase = /[A-Z]/.test(password);
+      const hasLowercase = /[a-z]/.test(password);
+      const hasNumber = /\d/.test(password);
+      const isLongEnough = password.length >= 8;
+      
+      if (!hasUppercase || !hasLowercase || !hasNumber || !isLongEnough) {
+        newErrors.password = 'Password must contain at least 8 characters, one uppercase letter, one lowercase letter, and one number';
+      }
     }
     
     if (!registerData.firstName.trim()) {
@@ -355,11 +381,12 @@ const Login: React.FC = () => {
                     <TextField
                       fullWidth
                       label="Password"
+                      placeholder="Must contain uppercase, lowercase, number & 8+ characters"
                       type={showPassword ? 'text' : 'password'}
                       value={registerData.password}
                       onChange={handleRegisterChange('password')}
                       error={!!errors.password}
-                      helperText={errors.password}
+                      helperText={errors.password || 'Choose a strong password'}
                       margin="normal"
                       InputProps={{
                         startAdornment: (
@@ -376,6 +403,89 @@ const Login: React.FC = () => {
                         ),
                       }}
                     />
+
+                    {/* Password Requirements */}
+                    {registerData.password.length > 0 && (
+                      <Box sx={{ mt: 1, mb: 2 }}>
+                        <Typography variant="body2" color="textSecondary" gutterBottom>
+                          Password Requirements:
+                        </Typography>
+                        <List dense sx={{ py: 0 }}>
+                          <ListItem sx={{ py: 0.25 }}>
+                            <ListItemIcon sx={{ minWidth: 32 }}>
+                              {passwordReqs.length ? (
+                                <CheckCircle color="success" fontSize="small" />
+                              ) : (
+                                <Cancel color="error" fontSize="small" />
+                              )}
+                            </ListItemIcon>
+                            <ListItemText 
+                              primary="At least 8 characters" 
+                              sx={{ 
+                                '& .MuiListItemText-primary': { 
+                                  fontSize: '0.875rem',
+                                  color: passwordReqs.length ? 'success.main' : 'error.main'
+                                }
+                              }}
+                            />
+                          </ListItem>
+                          <ListItem sx={{ py: 0.25 }}>
+                            <ListItemIcon sx={{ minWidth: 32 }}>
+                              {passwordReqs.uppercase ? (
+                                <CheckCircle color="success" fontSize="small" />
+                              ) : (
+                                <Cancel color="error" fontSize="small" />
+                              )}
+                            </ListItemIcon>
+                            <ListItemText 
+                              primary="One uppercase letter (A-Z)" 
+                              sx={{ 
+                                '& .MuiListItemText-primary': { 
+                                  fontSize: '0.875rem',
+                                  color: passwordReqs.uppercase ? 'success.main' : 'error.main'
+                                }
+                              }}
+                            />
+                          </ListItem>
+                          <ListItem sx={{ py: 0.25 }}>
+                            <ListItemIcon sx={{ minWidth: 32 }}>
+                              {passwordReqs.lowercase ? (
+                                <CheckCircle color="success" fontSize="small" />
+                              ) : (
+                                <Cancel color="error" fontSize="small" />
+                              )}
+                            </ListItemIcon>
+                            <ListItemText 
+                              primary="One lowercase letter (a-z)" 
+                              sx={{ 
+                                '& .MuiListItemText-primary': { 
+                                  fontSize: '0.875rem',
+                                  color: passwordReqs.lowercase ? 'success.main' : 'error.main'
+                                }
+                              }}
+                            />
+                          </ListItem>
+                          <ListItem sx={{ py: 0.25 }}>
+                            <ListItemIcon sx={{ minWidth: 32 }}>
+                              {passwordReqs.number ? (
+                                <CheckCircle color="success" fontSize="small" />
+                              ) : (
+                                <Cancel color="error" fontSize="small" />
+                              )}
+                            </ListItemIcon>
+                            <ListItemText 
+                              primary="One number (0-9)" 
+                              sx={{ 
+                                '& .MuiListItemText-primary': { 
+                                  fontSize: '0.875rem',
+                                  color: passwordReqs.number ? 'success.main' : 'error.main'
+                                }
+                              }}
+                            />
+                          </ListItem>
+                        </List>
+                      </Box>
+                    )}
 
                     {submitError && (
                       <Alert severity="error" sx={{ mt: 2 }}>
